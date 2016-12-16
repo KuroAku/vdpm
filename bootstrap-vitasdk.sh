@@ -5,7 +5,7 @@ get_download_link () {
   curl "https://api.github.com/repos/vitasdk/autobuilds/releases" | grep "browser_download_url" | grep $1 | head -n 1 | cut -d '"' -f 4
 }
 
-INSTALLDIR="/usr/local/vitasdk"
+INSTALLDIR="/usr/local/"
 
 if [ -d "$INSTALLDIR" ]; then
   echo "$INSTALLDIR already exists. Remove it first (e.g. 'sudo rm -rf $INSTALLDIR' or 'rm -rf $INSTALLDIR') and then restart this script"
