@@ -26,7 +26,8 @@ case "$(uname -s)" in
     sudo mkdir -p $INSTALLDIR
     sudo chown $USER:$USER $INSTALLDIR
     wget -O "vitasdk-nightly.tar.bz2" "$(get_download_link linux)"
-    tar xf "vitasdk-nightly.tar.bz2" -C $INSTALLDIR --strip-components=1
+    # Alpine linux uses busybox tar, which dont have --strip-components
+    tar xf "vitasdk-nightly.tar.bz2" -C $INSTALLDIR #--strip-components=1
    ;;
 
    MSYS*|MINGW64*)
